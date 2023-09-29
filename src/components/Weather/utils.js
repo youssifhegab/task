@@ -1,7 +1,7 @@
-export const getCurrentLocation = () => {
+export const getCoords = () => {
   navigator?.geolocation.getCurrentPosition((position) => {
     localStorage.setItem(
-      "location",
+      "coords",
       JSON.stringify({
         lat: position.coords.latitude,
         lng: position.coords.longitude,

@@ -1,9 +1,11 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import NightModeToggle from "../NightModeToggle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CloudIcon from "@mui/icons-material/Cloud";
 
 import { useGetCurrLocation, useRouterBack } from "../../utils";
 import { routes } from "../../constant";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const routerBack = useRouterBack();
@@ -21,7 +23,11 @@ function Navbar() {
             <ArrowBackIcon />
           </IconButton>
         )}
-        <p>Weather today</p>
+        {currLocation !== routes.WEATHER && (
+          <Link to={routes.WEATHER}>
+            <CloudIcon />
+          </Link>
+        )}
       </div>
       <div>
         <NightModeToggle />
